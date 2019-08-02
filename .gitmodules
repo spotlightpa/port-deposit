@@ -1,0 +1,3 @@
+[submodule "largo"]
+	path = largo
+	url = git@github.com:INN/largo.git
