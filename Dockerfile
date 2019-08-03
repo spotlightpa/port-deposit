@@ -10,6 +10,8 @@ COPY apache/default.conf /etc/apache2/sites-available/proxy-host.conf
 COPY apache/ports.conf /etc/apache2/ports.conf
 RUN a2ensite proxy-host
 
-COPY --from=largo-getter /src/largo /var/www/html/news/wp-content/themes/largo
+COPY --from=largo-getter /src/largo /usr/src/wordpress/wp-content/themes/largo
 
+# Can't change /var/www/html because it is a volume
 WORKDIR /var/www/html/news
+
