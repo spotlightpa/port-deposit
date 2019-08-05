@@ -1,3 +1,6 @@
 [submodule "largo"]
 	path = largo
 	url = git@github.com:INN/largo.git
+[submodule "amazon-s3-and-cloudfront"]
+	path = amazon-s3-and-cloudfront
+	url = https://github.com/deliciousbrains/wp-amazon-s3-and-cloudfront.git
