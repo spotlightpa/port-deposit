@@ -4,7 +4,9 @@ RUN apt-get update && apt-get install -y git
 
 WORKDIR /src
 RUN git clone https://github.com/deliciousbrains/wp-amazon-s3-and-cloudfront.git
-RUN git clone https://github.com/INN/largo.git
+RUN git clone https://github.com/INN/largo.git && cd largo && git checkout v0.6.4
+# Patch
+COPY custom-less-variables.php largo/css/custom-less-variables.php
 
 FROM wordpress:latest
 
