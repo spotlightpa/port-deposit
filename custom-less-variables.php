@@ -770,7 +770,7 @@ class Largo_Custom_Less_Variables {
 		$less = self::get_contents( self::variable_file_path() );
 
 		// Parse
-		$pattern = '#/\*\*\s+(?<comment>.*)\s+\*/\s*@(?P<name>[\w_-]+):\s*(?P<value>[^;]*);#Us';
+		$pattern = '#/\*\*\s+(?<comment>.*)\s+\*/\s*@(?P<name>[\w_\-]+):\s*(?P<value>[^;]*);#Us';
 		$comment_pattern = '#^\s*\*\s*@(?P<prop>\w+)\s+(?P<value>.*)$#mU';
 
 		preg_match_all( $pattern, $less, $matches );
