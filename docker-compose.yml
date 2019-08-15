@@ -30,6 +30,10 @@ services:
       WORDPRESS_DB_NAME: wordpress
     ports:
       - 80:80
+    volumes:
+      - wp_data:/var/www/html/news
+
 
 volumes:
   db_data: {}
+  wp_data: {}
