@@ -14,30 +14,22 @@ services:
     ports:
       - 3306:3306
 
-  ngnix:
-    build:
-      context: ./nginx
-      dockerfile: ./Dockerfile
-      args:
-        APP_VERSION: ${APP_VERSION:-local_dev}
-    image: port_deposit_local_ngnix
-    ports:
-      - "80:80"
-    depends_on:
-      - wordpress
-
   wordpress:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     depends_on:
       - db
-    image: wordpress:latest
+    image: local_port_deposit_wp
     restart: always
-    volumes:
-      - ./largo:/var/www/html/wp-content/themes/largo
     environment:
+      PORT: 80
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+    ports:
+      - 80:80
 
 volumes:
   db_data: {}
